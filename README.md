@@ -1,4 +1,4 @@
-#Targeted Clinical Pipeline built in Ruffus
+#A Targeted Clinical Pipeline Built in Ruffus
 
 ##Required installation:
 	Python 2.7.8	
