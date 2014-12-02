@@ -4,7 +4,7 @@ import sys
 import argparse
 import os
 
-parser = argparse.ArgumentParser(description = 'Write Stdout into seperate outputs')
+parser = argparse.ArgumentParser(description = 'Write Interlaced Fastq Standard Output Into Splited Files')
 parser.add_argument('-p', '--prefix', dest='prefix', type=str, 
                     help='Provide output file path\n '
                     'Format: /prefix/split_1.fq /prefix/split_2.fq\n '
@@ -12,7 +12,10 @@ parser.add_argument('-p', '--prefix', dest='prefix', type=str,
 
 args = parser.parse_args()
 
-print 'File prefix: ', args.prefix
+#check if prefix exists
+if not os.path.exists(args.prefix):
+    os.makedirs(args.prefix)
+    print 'File prefix: ', args.prefix                    
 
 #define output files  
 name1 = os.path.join(args.prefix, 'split_1.fq')
@@ -20,7 +23,7 @@ name2 = os.path.join(args.prefix, 'split_2.fq')
 f1 = open(name1, 'w')
 f2 = open(name2, 'w')
 
-o#define flag variables
+#define flag variables
 buff = ""
 counter = 0
 flipflot = 1
