@@ -52,4 +52,4 @@ print ("Processed {} records for pair file one "
        "and {} records for pair file two.".format(recs1, recs2))
 if(recs1 != recs2):
     print 'The number of processed records does not match - check input data!'
-if()
+#end of file
