@@ -15,7 +15,7 @@ args = parser.parse_args()
 #check if prefix exists
 if not os.path.exists(args.prefix):
     os.makedirs(args.prefix)
-    print 'File prefix: ', args.prefix                    
+print 'File prefix: ', args.prefix                    
 
 #define output files  
 name1 = os.path.join(args.prefix, 'split_1.fq')
