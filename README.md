@@ -16,7 +16,7 @@ Full path of sequencing libraries contained in a text file. If the reads are in 
 	/abs/path/library2_2.fq
 ```	
 ###Usage for fastq_split.py
-Added this file to split fastq output from BioBloomTool 2.0.7, which will output matched read pairs into stdout with command '-d [FIlTERNAME]'
+Added this file to split fastq output from BioBloomTool 2.0.7, which will output matched read pairs into stdout with command '-d [FIlTERNAME]'\n 
 Help display:
 ```
 usage: fastq_split.py [-h] [-p PREFIX] [-g] [-f]
