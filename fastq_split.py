@@ -1,15 +1,26 @@
 #!/usr/bin/env python
+try:
+    import sys
+    import argparse
+    import os
+    import gzip
+except ImportError, detail:
+    print detail
+    try:
+        sys.exit('Please check python version. '
+                 'to make sure argparse package is included')
+    except SystemExit:
+        raise
+    sys.stdout.flush()
 
-import sys
-import argparse
-import os
-import gzip
+#pass argument from command
 parser = argparse.ArgumentParser(description='Write Interlaced Fastq '
                                  'Standard Output Into Splited Files')
 parser.add_argument('-p', '--prefix', dest='prefix', type=str, 
                     help='Provide output file path and prefix  '
-                    'Format: /path/name_split_1, /path/name_split_2  '
-                    'Default path: %(default)s', default=os.getcwd())
+                    'Format: /path/prefix_1, /path/prefix_2 '
+                    'Default path: %(default)s',
+                    default=os.path.join(os.getcwd(), 'matchedReads'))
 parser.add_argument('-g', '--gzip', dest='gzip',action='store_true',
                     help='Specify gzip output file. '
                     'If not specified, files will not be gzip.')
@@ -18,7 +29,7 @@ parser.add_argument('-f', '--force', dest='overwrite', action='store_true',
 args = parser.parse_args()
 
 outpath = os.path.dirname(args.prefix)
-outname = os.path.basename(args.prefix) + '_split'
+outname = os.path.basename(args.prefix)
 #check if prefix exists
 if not os.path.exists(outpath):
     os.makedirs(outpath)
