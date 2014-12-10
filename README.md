@@ -35,3 +35,26 @@ optional arguments:
                         not be gzip.
   -f, --force           Overwriter existing file
 ```
+###Usage for geneExtract.py
+geneExtract.py will take interested gene names and find out the longest contig coordinates using GTF file. It will then extract sequence from reference genome and build bloom filter out of targeted genes. 
+
+Help display:
+
+```
+usage: geneExtract.py [-h] [-p PREFIX] -g GeneNames_file -gtf GTF_file -ref
+                      Ref Genome
+
+Extract target genes and generate bloom filter
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PREFIX, --prefix PREFIX
+                        Provide output file path. Default path:
+                        /projects/btl/pipeline/geneExtract
+  -g GeneNames_file, --gene GeneNames_file
+                        Provide absolute path of text file containing target
+                        names
+  -gtf GTF_file         Provide absolute path of gtf_file
+  -ref Ref Genome       Provide absolute path of the reference file
+```
+
