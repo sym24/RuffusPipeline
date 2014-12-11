@@ -41,8 +41,8 @@ geneExtract.py will take interested gene names and find out the longest contig c
 Help display:
 
 ```
-usage: geneExtract.py [-h] [-p PREFIX] -g GeneNames_file -gtf GTF_file -ref
-                      Ref Genome
+usage: geneExtract.py [-h] [-p PREFIX] -t TargetGeneFile -gtf GTF_file -ref
+                      Ref Genome [-f]
 
 Extract target genes and generate bloom filter
 
@@ -50,11 +50,13 @@ optional arguments:
   -h, --help            show this help message and exit
   -p PREFIX, --prefix PREFIX
                         Provide output file path. Default path:
-                        /projects/btl/pipeline/geneExtract
-  -g GeneNames_file, --gene GeneNames_file
+                        /home/ymingsun/work/project_pipeline/ruffus
+  -t TargetGeneFile, --target TargetGeneFile
                         Provide absolute path of text file containing target
-                        names
+                        gene names
   -gtf GTF_file         Provide absolute path of gtf_file
   -ref Ref Genome       Provide absolute path of the reference file
+  -f, --force           Overwriter existing file
+
 ```
 
