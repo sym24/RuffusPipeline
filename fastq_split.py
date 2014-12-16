@@ -1,17 +1,9 @@
 #!/usr/bin/env python
-try:
-    import sys
-    import argparse
-    import os
-    import gzip
-except ImportError, detail:
-    print detail
-    try:
-        sys.exit('Please check python version. '
-                 'to make sure argparse package is included')
-    except SystemExit:
-        raise
-    sys.stdout.flush()
+
+import sys
+import argparse
+import os
+import gzip
 
 #pass argument from command
 parser = argparse.ArgumentParser(description='Write Interlaced Fastq '
