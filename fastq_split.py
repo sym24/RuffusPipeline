@@ -22,6 +22,7 @@ args = parser.parse_args()
 
 outpath = os.path.dirname(args.prefix)
 outname = os.path.basename(args.prefix)
+
 #check if prefix exists
 if not os.path.exists(outpath):
     os.makedirs(outpath)
@@ -34,22 +35,16 @@ def checkExist(file1, file2):
         if(args.overwrite):
             print 'File {}, {} exist, will overwrite'.format(file1, file2)
         else:
-            try:
-                sys.exit('File {}, {} exist.\nPlease use "-f" to overwrite or '
-                        'change output file name or path'.format(file1, file2))
-            except SystemExit:
-                raise
+            sys.exit('File {}, {} exist.\nPlease use "-f" to overwrite or '
+                     'change output file name or path'.format(file1, file2))
         #end if
     #end if
-# def debugPrint(file1, file2):
-#     print 'file1 {}, file2 {}'.format(file1,file2)
-
+   
 if(args.gzip):
     #define output files  
     name1 = os.path.join(outpath, outname + '_1.fq.gz')
     name2 = os.path.join(outpath, outname + '_2.fq.gz')
     checkExist(name1, name2)
-#    debugPrint(name1, name2)
     f1 = gzip.open(name1, 'w')
     f2 = gzip.open(name2, 'w')
 else:
@@ -57,7 +52,6 @@ else:
     name1 = os.path.join(outpath, outname + '_1.fq')
     name2 = os.path.join(outpath, outname + '_2.fq')
     checkExist(name1, name2)
-#    debugPrint(name1, name2)
     f1 = open(name1, 'w')
     f2 = open(name2, 'w')
 
